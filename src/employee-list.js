@@ -56,7 +56,7 @@ class EmployeeList extends PolymerElement {
                                             <td class="mdl-data-table__cell--non-numeric">{{item.3}}</td>
                                            <td class="mdl-data-table__cell--non-numeric">{{item.4}}</td>
                                             <td class="mdl-data-table__cell--non-numeric">{{item.5}}</td>
-                                            <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" on-click="clickHandler" > Delete </button> </td>
+                                            <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" on-click="delete" > Delete </button> </td>
 
                                       </tr>
                                       
@@ -85,10 +85,12 @@ class EmployeeList extends PolymerElement {
         //this.$.empfirstname.innerHTML = JSON.parse(window.localStorage.getItem('All-Entries', emplist[1]));
 
     }
-    clickHandler(e) {
-        var emplist = [];
-        var emplist = this.emplist.splice(0, 1);
-        window.localStorage.setItem("All-Entries", JSON.stringify(emplist));
+    delete(e) {
+        var data = JSON.parse(window.localStorage.getItem('All-Entries'));
+        var xxx = data.splice(1, 1);
+        console.log(xxx);
+        window.localStorage.setItem("All-Entries", JSON.stringify(xxx));
+
         // window.localStorage.removeItem('All-Entries'); // delete all
         // const target = e.target;
         // if ('BUTTON' != target.tagName) return;

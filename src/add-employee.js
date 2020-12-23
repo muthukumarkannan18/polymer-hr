@@ -124,9 +124,7 @@ class AddEmployee extends PolymerElement {
                 window.alert("Employee Added Sucessfully");
 
                 this.$.empforms.reset();
-                window.onload('/add-employee');
-
-            } else {
+                //window.onload('/add-employee');
 
             }
 
