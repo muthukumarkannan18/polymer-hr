@@ -2,9 +2,9 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './style-element.js';
 
 class LoginApp extends PolymerElement {
-  
-  static get template() {
-    return html`
+
+    static get template() {
+        return html `
       <style include="style-element">
    
       </style>
@@ -30,34 +30,33 @@ class LoginApp extends PolymerElement {
     
 
     `;
-  }
-  userform() {
-    var user = this.$.username.value;
-    var pass = this.$.password.value;
-// Username "admin"
-  if(user !== "admin"){
-    
-    this.$.div1.innerHTML = "Enter a correct username";
-    this.$.div1.style.display = "block";
-    this.$.div2.style.display = "none";
-    return false;
-  }
-// Password "admin"
-  else if(pass !== "admin"){
-    
-    this.$.div2.innerHTML = "Enter a correct password";
-    this.$.div2.style.display = "block";
-    this.$.div1.style.display = "none";
-    return false;
-  }
-// If username and password value ="admin & admin"
-  else {
-    window.location.href = "/dashboard";
-  }
-  return user;
-  
-  };
- 
+    }
+    userform() {
+        var user = this.$.username.value;
+        var pass = this.$.password.value;
+        // Username "admin"
+        if (user !== "admin") {
+            this.$.div1.innerHTML = "Enter a correct username";
+            this.$.div1.style.display = "block";
+            this.$.div2.style.display = "none";
+            return false;
+        }
+        // Password "admin"
+        else if (pass !== "admin") {
+
+            this.$.div2.innerHTML = "Enter a correct password";
+            this.$.div2.style.display = "block";
+            this.$.div1.style.display = "none";
+            return false;
+        }
+        // If username and password value ="admin & admin"
+        else {
+            window.location.href = "/dashboard";
+        }
+        return user;
+
+    };
+
 }
 
 

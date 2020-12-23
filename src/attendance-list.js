@@ -1,12 +1,10 @@
-
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
-import './material-file.js';
 
 
 class AttendanceList extends PolymerElement {
-  static get template() {
-    return html`
+    static get template() {
+        return html `
     <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
 <script src="/node_modules/material-design-lite/material.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -148,7 +146,7 @@ class AttendanceList extends PolymerElement {
                 </div>
       </div>
     `;
-  }
+    }
 }
 
 window.customElements.define('attendance-list', AttendanceList);

@@ -1,11 +1,11 @@
-
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import '@polymer/iron-ajax/iron-ajax.js';
 import './shared-styles.js';
 
 
 class EmployeeList extends PolymerElement {
-  static get template() {
-    return html`
+    static get template() {
+        return html `
     <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
     <script src="/node_modules/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -23,132 +23,81 @@ class EmployeeList extends PolymerElement {
         
       </div>
       <div class="card">
+      <div id="empfirstname"></div>
+      </div>
+      <div class="card">
       <div class="mdl-grid">
-      <div class="table-responsive">
-      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                  <thead>
-                    <tr>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">S.No</th>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">First Name</th>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">Last Name</th>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">Designation</th>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">Phone Number</th>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">Email</th>
-                      <th scope="col" class="mdl-data-table__cell--non-numeric">Action</th>
+      <iron-ajax url="./src/emplist.json" last-response="{{item}}" auto> </iron-ajax>
+                <div class="table-responsive">
 
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="mdl-data-table__cell--non-numeric">1</td>
-                      <td class="mdl-data-table__cell--non-numeric">Muthukumar</td>
-                      <td class="mdl-data-table__cell--non-numeric">Kannan</td>
-                      <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                      <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                      <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                      <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">S.No</th>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">First Name</th>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">Last Name</th>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">Designation</th>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">Phone Number</th>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">Email</th>
+                              <th scope="col" class="mdl-data-table__cell--non-numeric">Action</th>
 
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">2</td>
-                    <td class="mdl-data-table__cell--non-numeric">Sri Sugan</td>
-                    <td class="mdl-data-table__cell--non-numeric">Kannan</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">3</td>
-                    <td class="mdl-data-table__cell--non-numeric">Santhosh</td>
-                    <td class="mdl-data-table__cell--non-numeric">Yesudas</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">4</td>
-                    <td class="mdl-data-table__cell--non-numeric">Vijay</td>
-                    <td class="mdl-data-table__cell--non-numeric">Kumar</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">5</td>
-                    <td class="mdl-data-table__cell--non-numeric">Henry</td>
-                    <td class="mdl-data-table__cell--non-numeric">Prasana</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
+                            </tr>
+                          </thead>
+                          
+              
+                          
+                <template is="dom-repeat" items="{{emplist}}" >
+                
+                            <tbody>
+                              <tr class="item">
+                                            <td class="mdl-data-table__cell--non-numeric">{{item.0}}</td>
+                                            <td class="mdl-data-table__cell--non-numeric">{{item.1}}</td>
+                                            <td class="mdl-data-table__cell--non-numeric">{{item.2}}</td>
+                                            <td class="mdl-data-table__cell--non-numeric">{{item.3}}</td>
+                                           <td class="mdl-data-table__cell--non-numeric">{{item.4}}</td>
+                                            <td class="mdl-data-table__cell--non-numeric">{{item.5}}</td>
+                                            <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" on-click="clickHandler" > Delete </button> </td>
 
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">6</td>
-                    <td class="mdl-data-table__cell--non-numeric">Muthukumar</td>
-                    <td class="mdl-data-table__cell--non-numeric">Kannan</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">7</td>
-                    <td class="mdl-data-table__cell--non-numeric">Sri Sugan</td>
-                    <td class="mdl-data-table__cell--non-numeric">Kannan</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">8</td>
-                    <td class="mdl-data-table__cell--non-numeric">Santhosh</td>
-                    <td class="mdl-data-table__cell--non-numeric">Yesudas</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">9</td>
-                    <td class="mdl-data-table__cell--non-numeric">Vijay</td>
-                    <td class="mdl-data-table__cell--non-numeric">Kumar</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                    <tr>
-                    <td class="mdl-data-table__cell--non-numeric">10</td>
-                    <td class="mdl-data-table__cell--non-numeric">Henry</td>
-                    <td class="mdl-data-table__cell--non-numeric">Prasana</td>
-                    <td class="mdl-data-table__cell--non-numeric">Software Developer</td>
-                    <td class="mdl-data-table__cell--non-numeric">+91 8608788828</td>
-                    <td class="mdl-data-table__cell--non-numeric">muthukumarkannan18@gmail.com</td>
-                    <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete</button> <button type="submit"
-                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update</button></td>
-                    </tr>
-                  </tbody>
-                </table>
+                                      </tr>
+                                      
+                            </tbody>
+                </template>
+                                  
+                    
+                      </table>
+                      
+                      
+                      
+                  
                 </div>
                 </div>
       </div>
+     
     `;
-  }
+    }
+    ready() {
+        super.ready();
+
+        //console.log('hi');
+        //this.addEventListener('handleLocalstorageLoadEvent');
+        //console.log('hi muthu');
+        this.emplist = JSON.parse(window.localStorage.getItem('All-Entries'));
+        //this.$.empfirstname.innerHTML = JSON.parse(window.localStorage.getItem('All-Entries', emplist[1]));
+
+    }
+    clickHandler(e) {
+        var emplist = [];
+        var emplist = this.emplist.splice(0, 1);
+        window.localStorage.setItem("All-Entries", JSON.stringify(emplist));
+        // window.localStorage.removeItem('All-Entries'); // delete all
+        // const target = e.target;
+        // if ('BUTTON' != target.tagName) return;
+        // const record = target.record;
+        // do the rest
+    }
+
+
+
 }
 
 window.customElements.define('employee-list', EmployeeList);
