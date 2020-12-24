@@ -1,6 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import './shared-styles.js';
+import '@polymer/polymer/lib/elements/array-selector.js';
 
 
 class EmployeeList extends PolymerElement {
@@ -22,9 +23,7 @@ class EmployeeList extends PolymerElement {
         <h1>Employee List</h1>
         
       </div>
-      <div class="card">
-      <div id="empfirstname"></div>
-      </div>
+      
       <div class="card">
       <div class="mdl-grid">
       <iron-ajax url="./src/emplist.json" last-response="{{item}}" auto> </iron-ajax>
@@ -46,7 +45,7 @@ class EmployeeList extends PolymerElement {
                           
               
                           
-                <template is="dom-repeat" items="{{emplist}}" >
+                <template is="dom-repeat" items="{{emplist}}" id="employeeList" >
                 
                             <tbody>
                               <tr class="item">
@@ -62,6 +61,7 @@ class EmployeeList extends PolymerElement {
                                       
                             </tbody>
                 </template>
+                <array-selector id="selector" items="{{emplist}}" selected="{{selected}}" multi toggle></array-selector>
                                   
                     
                       </table>
@@ -83,13 +83,15 @@ class EmployeeList extends PolymerElement {
         //console.log('hi muthu');
         this.emplist = JSON.parse(window.localStorage.getItem('All-Entries'));
         //this.$.empfirstname.innerHTML = JSON.parse(window.localStorage.getItem('All-Entries', emplist[1]));
-
     }
     delete(e) {
+        // var item = this.$.employeeList.itemForElement(e.target);
+        // this.$.selector.select(item);
         var data = JSON.parse(window.localStorage.getItem('All-Entries'));
-        var xxx = data.splice(1, 1);
-        console.log(xxx);
-        window.localStorage.setItem("All-Entries", JSON.stringify(xxx));
+        console.log(data);
+        data.splice(0, 1);
+        window.localStorage.setItem("All-Entries", JSON.stringify(data));
+        window.alert("Employee Deleted Sucessfully");
 
         // window.localStorage.removeItem('All-Entries'); // delete all
         // const target = e.target;
