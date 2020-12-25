@@ -33,31 +33,19 @@ class AddEmployee extends PolymerElement {
                   <form is = "iron-form" id = "empforms" method = "post" action = "/form/handler" name="empforms">
                   <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--6-col">
-                    <span>First Name *</span>
-                    <paper-input always-float-label label="Floating label"></paper-input>
-                    <paper-input label="text input" name="fname" id="fname" required auto-validate error-message="First Name must be filled out"></paper-input>
-                    <!--<input type="text" name="fname" id="fname" value="" required> -->
-                    <div id="div1" style="color:red;"></div>
+                    <paper-input label="Enter First Name" name="fname" id="fname" required auto-validate error-message="First Name must be filled out"></paper-input>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col" required>
-                    <span>Last Name *</span>
-                    <input type="text" name="lname" id="lname" value="" required>
-                    <div id="div2" style="color:red;"></div>
+                    <paper-input label="Enter Last Name" name="lname" id="lname" required auto-validate error-message="Last Name must be filled out"></paper-input>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col">
-                    <span>Designation *</span>
-                    <input type="text" name="designation" id="des" value="" required>
-                    <div id="div3" style="color:red;" ></div>
+                    <paper-input label="Enter designation" name="designation" id="des" required auto-validate error-message="Designation must be filled out"></paper-input>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col">
-                    <span>Phone Number *</span>
-                    <input type="number" name="phone" id="phone" value="" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" required>
-                    <div id="div4" style="color:red;"></div>
+                    <paper-input label="Enter phone number" name="phone" id="phone" required  auto-validate pattern="[0-9]*" error-message="Phone number must be filled out" maxlength="10"></paper-input>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col">
-                    <span>Email *</span>
-                    <input type="text" name="email" id="email" value="" required>
-                    <div id="div5" style="color:red;"></div>
+                    <paper-input type="email" label="Enter email" name="email" id="email" required auto-validate error-message="Email must be filled out"></paper-input>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col">
                     <input type="submit" value="Add Employee" on-click="addemp" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
@@ -78,40 +66,6 @@ class AddEmployee extends PolymerElement {
             var des = this.$.des.value;
             var phone = this.$.phone.value;
             var email = this.$.email.value;
-
-            if (fname == "") {
-                //alert("Name must be filled out");
-                this.$.div1.innerHTML = "First Name must be filled out";
-                this.$.div1.style.display = "block";
-                return false;
-            } else {
-                this.$.div1.style.display = "none";
-            }
-            if (lname == "") {
-                this.$.div1.style.display = "none";
-                this.$.div2.innerHTML = "Last Name must be filled out";
-
-            } else {
-                this.$.div2.style.display = "none";
-            }
-            if (des == "") {
-                this.$.div3.innerHTML = "Description must be filled out";
-
-            } else {
-                this.$.div3.style.display = "none";
-            }
-            if (phone == "") {
-                this.$.div4.innerHTML = "Phone Nummber must be filled out";
-
-            } else {
-                this.$.div4.style.display = "none";
-            }
-            if (email == "") {
-                this.$.div5.innerHTML = "Email must be filled out";
-
-            } else {
-                this.$.div5.style.display = "none";
-            }
 
             if (fname != "" && lname != "" && des != "" && phone != "" && email != "") {
 

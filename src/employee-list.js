@@ -77,6 +77,7 @@ class EmployeeList extends PolymerElement {
     }
     ready() {
         super.ready();
+        console.log('my-element is ready!');
 
         //console.log('hi');
         //this.addEventListener('handleLocalstorageLoadEvent');

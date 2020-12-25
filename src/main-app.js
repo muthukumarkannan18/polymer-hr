@@ -224,7 +224,7 @@ class MainApp extends PolymerElement {
                 import ('./add-employee.js');
                 break;
             case 'employee-list':
-                import ('./employee-list.js');
+                import ('./employee-list.js').then();
                 break;
             case 'attendance-list':
                 import ('./attendance-list.js');
