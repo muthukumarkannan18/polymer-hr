@@ -1,6 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 import '@polymer/iron-form/iron-form.js';
+import '@polymer/paper-input/paper-input.js';
+
 
 class AddEmployee extends PolymerElement {
     static get template() {
@@ -32,7 +34,9 @@ class AddEmployee extends PolymerElement {
                   <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--6-col">
                     <span>First Name *</span>
-                    <input type="text" name="fname" id="fname" value="" required>
+                    <paper-input always-float-label label="Floating label"></paper-input>
+                    <paper-input label="text input" name="fname" id="fname" required auto-validate error-message="First Name must be filled out"></paper-input>
+                    <!--<input type="text" name="fname" id="fname" value="" required> -->
                     <div id="div1" style="color:red;"></div>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col" required>
@@ -58,9 +62,9 @@ class AddEmployee extends PolymerElement {
                     <div class="mdl-cell mdl-cell--12-col">
                     <input type="submit" value="Add Employee" on-click="addemp" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
                     </div>
-                    </iron-form>
+                    
                   </form>
-
+                  </iron-form>
           </div>
       </div>
     `;
