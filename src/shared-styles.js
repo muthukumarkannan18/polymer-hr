@@ -1,10 +1,87 @@
-
 import '@polymer/polymer/polymer-element.js';
 
 const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
+    h1{
+      font-size: 22px !important;
+    }
+
+    app-drawer-layout:not([narrow]) [drawer-toggle] {
+      display: none;
+    }
+
+    app-header {
+
+      color: #fff;
+      background-color: var(--app-primary-color);
+    }
+    @media only screen and (min-width: 640px) {
+        app-header{
+            display: none;
+        }
+    }
+
+    app-header paper-icon-button {
+      --paper-icon-button-ink-color: white;
+    }
+    .drawer-list {
+      margin: 0 20px;
+    }
+
+    .drawer-list a {
+      display: block;
+      text-decoration: none;
+      color: var(--app-secondary-color);
+      line-height: 40px;
+      
+    }
+
+    .drawer-list a.iron-selected {
+      color: #fff;
+      font-weight: bold;
+    }
+    app-drawer {
+        --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
+
+        --app-drawer-content-container: {
+          background-color: #673AB7;
+        }
+        
+      }
+      .logo img{
+        margin-top:20px;
+    }
+    .mobile-logo img{
+      margin-top:7px;
+  }
+    
+    .drawer-list a.iron-selected {
+      background: #8d5ce4;
+  }
+  .drawer-list a {
+    color: #fff;
+    padding: 11px 27px;
+    border-bottom: 1px solid #5c30ab;
+    font-size: 18px;
+    font-weight: normal !important;
+  }
+    .drawer-list a:hover {
+      background: #8d5ce4;
+  }
+  footer.card {
+    margin: 0px 34px 0px;
+    padding: 1px 28px;
+    color: #757575;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  }
+  footer p a{
+    text-decoration: none;
+
+  }
     .clr1, .clr2, .clr3, .clr4{
       border-radius: 5px;
       color: #fff;
