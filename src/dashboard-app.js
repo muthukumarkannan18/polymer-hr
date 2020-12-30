@@ -9,10 +9,12 @@ class DashboardApp extends PolymerElement {
             user: {
                 type: Object,
                 value: function() {
+
+                    // Get count for the total employes in local storage
                     var emplist = JSON.parse(window.localStorage.getItem('All-Entries')).length;
+
+                    // Get count for the total employes in local storage
                     var leavelist = JSON.parse(window.localStorage.getItem('All-Leave-Entry-Lists')).length;
-
-
                     return {
                         emplist,
                         leavelist
@@ -48,30 +50,37 @@ class DashboardApp extends PolymerElement {
         }
         
       </style>
-
+      
+      <!--- title start -->
       <div class="card" style="margin:16px;">
         <h1>Dashboard</h1>
       </div>
+      <!--- title start -->
+
+      <!--- Count box start -->
       <div class="card" style="margin:6px 16px; padding: 8px 4px 0px;">
           <div class="mdl-grid">
+              <!--- Total employee Count start -->
               <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
-                
                   <div class="clr1">
                   <p>Total Employee</p> <span>{{user.emplist}}</span>
                   </div>
-               
               </div>
+              <!--- Total employee Count end -->
+              <!--- Today Leave employee Count start -->
               <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
-                
                   <div class="clr3">
                   <p>Today Leave</p> <span>{{user.leavelist}}</span>
                   </div>
-                
               </div>
+              <!--- Today Leave employee Count end -->
           </div>
       </div>
+      <!--- Count box end -->
       
+      <!--- Chart start -->
       <div class="mdl-grid">
+            <!--- Pie Chart start -->
             <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
               <div class="card">
               <h1>Total Employee Details</h1>
@@ -82,6 +91,8 @@ class DashboardApp extends PolymerElement {
                   </google-chart>
                 </div>
             </div>
+            <!--- Pie Chart start -->
+            <!--- Bar Chart start -->
             <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
                 <div class="card">
                 <h1>Job Category</h1>
@@ -92,6 +103,7 @@ class DashboardApp extends PolymerElement {
                     </google-chart>
                 </div>
             </div>
+            <!--- Bar Chart end -->
       </div>
     
     `;

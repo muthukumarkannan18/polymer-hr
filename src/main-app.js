@@ -103,7 +103,7 @@ class MainApp extends PolymerElement {
             page: {
                 type: String,
                 reflectToAttribute: true,
-                observer: '_pageChanged'
+                observer: '_pageChanged' // obeserver observe the changes then call the pageChanged functions
             },
             routeData: Object,
             subroute: Object
@@ -117,12 +117,19 @@ class MainApp extends PolymerElement {
     }
 
     _routePageChanged(page) {
+
+        // if page null then it redirect to login page 
         if (!page) {
             this.page = 'login';
+        }
 
-        } else if (['login', 'dashboard', 'add-employee', 'employee-list', 'attendance-list'].indexOf(page) !== -1) {
+        // else it's redirect to respective pages
+        else if (['login', 'dashboard', 'add-employee', 'employee-list', 'attendance-list'].indexOf(page) !== -1) {
             this.page = page;
-        } else {
+        }
+
+        // invalid urls to redirect to 404 page
+        else {
             this.page = 'view404';
         }
 
@@ -130,8 +137,10 @@ class MainApp extends PolymerElement {
             this.$.drawer.close();
         }
 
-        if (page = 'login') {} else {
+        if (page = 'login') {}
 
+        // if page not equal to login then only show the navigation 
+        else {
             this.$.drawer.style.display = "block";
         }
     }
@@ -139,20 +148,29 @@ class MainApp extends PolymerElement {
     _pageChanged(page) {
         switch (page) {
 
+            // If page 'login' then import login component 
             case 'login':
                 import ('./login-app.js');
                 this.$.drawer.style.display = "none";
                 this.$.appheader.style.display = "none";
                 break;
+
+                // If page 'Dashboard' then import dashboard component 
             case 'dashboard':
                 import ('./dashboard-app.js');
                 break;
+
+                // If page 'Add employee' then import Add Employee component 
             case 'add-employee':
                 import ('./add-employee.js');
                 break;
+
+                // If page 'list of employee' then import Employee List component 
             case 'employee-list':
                 import ('./employee-list.js');
                 break;
+
+                // If page 'Leave Request' then import attendance list component 
             case 'attendance-list':
                 import ('./attendance-list.js');
                 break;

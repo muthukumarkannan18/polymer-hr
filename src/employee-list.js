@@ -9,8 +9,8 @@ class EmployeeList extends PolymerElement {
             user: {
                 type: Object,
                 value: function() {
+                    // Get array data from Local Storage 
                     var emplist = JSON.parse(window.localStorage.getItem('All-Entries'));
-
                     return {
                         emplist
                     };
@@ -78,11 +78,6 @@ class EmployeeList extends PolymerElement {
     `;
     }
 
-    // Get data from local storage
-    ready() {
-        super.ready();
-        //this.emplist = JSON.parse(window.localStorage.getItem('All-Entries'));
-    }
 
     // Data delete from local storage
     delete(e) {

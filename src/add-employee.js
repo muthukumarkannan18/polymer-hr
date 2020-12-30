@@ -62,19 +62,20 @@ class AddEmployee extends PolymerElement {
     }
     addemp() {
         if (typeof(Storage) !== "undefined") {
+            // get value from form
             var fname = this.$.fname.value;
             var lname = this.$.lname.value;
             var des = this.$.des.value;
             var phone = this.$.phone.value;
             var email = this.$.email.value;
 
+            // Storing array data to local storage
             if (fname != "" && lname != "" && des != "" && phone != "" && email != "") {
                 var existingEntries = JSON.parse(localStorage.getItem("All-Entries"));
                 if (existingEntries == null) existingEntries = [];
                 var emplist = [];
-                var status = "Pending";
                 var slno = existingEntries.length + 1;
-                emplist.push(slno, fname, lname, des, phone, email, status)
+                emplist.push(slno, fname, lname, des, phone, email)
                 window.localStorage.setItem('Current-Entry-List', JSON.stringify(emplist));
                 existingEntries.push(emplist);
                 window.localStorage.setItem("All-Entries", JSON.stringify(existingEntries));

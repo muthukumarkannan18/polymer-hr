@@ -9,8 +9,8 @@ class AttendanceList extends PolymerElement {
             user: {
                 type: Object,
                 value: function() {
+                    // Get array data from Local Storage 
                     var leavelist = JSON.parse(window.localStorage.getItem('All-Leave-Entry-Lists'));
-
                     return {
                         leavelist
                     };
@@ -54,6 +54,7 @@ class AttendanceList extends PolymerElement {
                   </tr>
                 </thead>
 
+                <!--- Data display in table using dom-reapeat start -->
                 <template is="dom-repeat" items="{{user.leavelist}}" id="leaveList" >
                   <tbody>
                     <tr class="item">
@@ -67,9 +68,12 @@ class AttendanceList extends PolymerElement {
                     </tr>       
                   </tbody>
                 </template>
+                <!--- Data display in table using dom-reapeat end -->
 
+                <!--- Array Selector start -->
                 <array-selector id="selector" items="{{leavelist}}" selected="{{selected}}" multi toggle>
                 </array-selector>
+                <!--- Array Selector end -->
 
             </table> 
             <!--- table end -->     
