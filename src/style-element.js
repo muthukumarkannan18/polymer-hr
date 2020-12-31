@@ -1,6 +1,6 @@
 const styleElement = document.createElement('dom-module');
-styleElement.innerHTML = 
- `<template>
+styleElement.innerHTML =
+    `<template>
    <style>
    *{
     margin: 0;
@@ -188,5 +188,4 @@ footer {
 
    </style>
  </template>`;
- styleElement.register('style-element'); 
- 
+styleElement.register('style-element');

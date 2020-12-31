@@ -20,7 +20,7 @@ class AttendanceList extends PolymerElement {
     }
     static get template() {
         return html `
-    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+        <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
     <script src="/node_modules/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <style include="shared-styles">
@@ -29,7 +29,6 @@ class AttendanceList extends PolymerElement {
           padding: 10px;
         }
       </style>
-
       <!--- title start -->
       <div class="card">
         <h1>Leave Request List</h1>

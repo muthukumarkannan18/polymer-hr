@@ -21,6 +21,7 @@ import './my-icons.js';
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath);
 
+
 class MainApp extends PolymerElement {
     static get template() {
         return html `
@@ -103,7 +104,7 @@ class MainApp extends PolymerElement {
             page: {
                 type: String,
                 reflectToAttribute: true,
-                observer: '_pageChanged' // obeserver observe the changes then call the pageChanged functions
+                observer: '_pageChanged' // _pageChanged to import the page.
             },
             routeData: Object,
             subroute: Object
@@ -112,24 +113,21 @@ class MainApp extends PolymerElement {
 
     static get observers() {
         return [
-            '_routePageChanged(routeData.page)'
+            '_routePageChanged(routeData.page)' //_routePageChanged to check the route data changes
         ];
     }
 
     _routePageChanged(page) {
+        // Show the corresponding page according to the route.
+        //
+        // If no page was found in the route data, page will be an empty string.
+        // Show 'login' in that case. And if the page doesn't exist, show 'view404'.
 
-        // if page null then it redirect to login page 
         if (!page) {
             this.page = 'login';
-        }
-
-        // else it's redirect to respective pages
-        else if (['login', 'dashboard', 'add-employee', 'employee-list', 'attendance-list'].indexOf(page) !== -1) {
+        } else if (['login', 'dashboard', 'add-employee', 'employee-list', 'attendance-list'].indexOf(page) !== -1) {
             this.page = page;
-        }
-
-        // invalid urls to redirect to 404 page
-        else {
+        } else {
             this.page = 'view404';
         }
 
@@ -137,40 +135,36 @@ class MainApp extends PolymerElement {
             this.$.drawer.close();
         }
 
-        if (page = 'login') {}
-
-        // if page not equal to login then only show the navigation 
-        else {
+        if (page = 'login') {} else {
             this.$.drawer.style.display = "block";
         }
     }
 
     _pageChanged(page) {
+        // Import the page component on demand.
+        //
+        // Note: `polymer build` doesn't like string concatenation in the import
+        // statement, so break it up.
         switch (page) {
 
-            // If page 'login' then import login component 
             case 'login':
                 import ('./login-app.js');
                 this.$.drawer.style.display = "none";
                 this.$.appheader.style.display = "none";
                 break;
 
-                // If page 'Dashboard' then import dashboard component 
             case 'dashboard':
                 import ('./dashboard-app.js');
                 break;
 
-                // If page 'Add employee' then import Add Employee component 
             case 'add-employee':
                 import ('./add-employee.js');
                 break;
 
-                // If page 'list of employee' then import Employee List component 
             case 'employee-list':
                 import ('./employee-list.js');
                 break;
 
-                // If page 'Leave Request' then import attendance list component 
             case 'attendance-list':
                 import ('./attendance-list.js');
                 break;
