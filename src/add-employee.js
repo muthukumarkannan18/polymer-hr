@@ -85,7 +85,7 @@ class AddEmployee extends PolymerElement {
 
         } else {
             this.$.result.innerHTML = "Sorry, your browser does not support Web Storage...";
-            //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+
         }
     }
 }
