@@ -61,7 +61,7 @@ class AddEmployee extends PolymerElement {
     `;
     }
     addemp() {
-        if (typeof(Storage) !== "undefined") {
+        if (typeof(Storage) != "undefined") {
             // get value from form
             var fname = this.$.fname.value;
             var lname = this.$.lname.value;
@@ -84,7 +84,8 @@ class AddEmployee extends PolymerElement {
             }
 
         } else {
-            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            this.$.result.innerHTML = "Sorry, your browser does not support Web Storage...";
+            //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
         }
     }
 }
