@@ -57,12 +57,12 @@ class AttendanceList extends PolymerElement {
                 <template is="dom-repeat" items="{{user.leavelist}}" id="leaveList" >
                   <tbody>
                     <tr class="item">
-                        <td class="mdl-data-table__cell--non-numeric">{{item.0}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.1}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.2}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.3}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.4}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{item.5}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.0]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.1]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.2]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.3]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.4]]</td>
+                        <td class="mdl-data-table__cell--non-numeric">[[item.5]]</td>
                         <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" on-click="approve" > Approve </button> <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" on-click="reject" > Reject </button></td>
                     </tr>       
                   </tbody>

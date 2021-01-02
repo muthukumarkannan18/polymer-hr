@@ -57,12 +57,12 @@ class EmployeeList extends PolymerElement {
               <template is="dom-repeat" items="{{user.emplist}}" id="employeeList" > 
                 <tbody>
                   <tr class="item">
-                    <td class="mdl-data-table__cell--non-numeric">{{item.0}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{item.1}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{item.2}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{item.3}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{item.4}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{item.5}}</td>
+                    <td class="mdl-data-table__cell--non-numeric">[[item.0]]</td>
+                    <td class="mdl-data-table__cell--non-numeric">[[item.1]]</td>
+                    <td class="mdl-data-table__cell--non-numeric">[[item.2]]</td>
+                    <td class="mdl-data-table__cell--non-numeric">[[item.3]]</td>
+                    <td class="mdl-data-table__cell--non-numeric">[[item.4]]</td>
+                    <td class="mdl-data-table__cell--non-numeric">[[item.5]]</td>
                     <td><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" on-click="delete" >Delete </button> </td>
                   </tr>
                 </tbody>
