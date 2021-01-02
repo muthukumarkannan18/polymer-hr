@@ -15,13 +15,13 @@ class LoginApp extends PolymerElement {
       <section>
         <div class="login-area">
             <!-- Logo Here --->
-                <img src="images/logo.jpg">
+                <img role="logo" src="images/logo.jpg">
             <!-- Login Form Start --->  
             <iron-form>  
-                <form id="myForm" is = "iron-form" method="post" action="/form/handler">
-                    <paper-input id="username" label="Enter Username" required auto-validate error-message="Username must be filled out"></paper-input>
-                    <paper-input type="password" id="password" label="Enter Password" required auto-validate error-message="Password must be filled out"></paper-input>
-                    <input id="submitForValidation" type="submit" required Label="Enter the Valid Username or Password" value="Login" on-click="userform" class="btn">
+                <form id="myForm" is = "iron-form" method="post" action="/form/handler" tabindex="0">
+                    <paper-input role="Enter Username" id="username" label="Enter Username" required auto-validate error-message="Username must be filled out"></paper-input>
+                    <paper-input role="Enter Password" type="password" id="password" label="Enter Password" required auto-validate error-message="Password must be filled out"></paper-input>
+                    <input id="submitForValidation" role="Submit" type="submit" required Label="Enter the Valid Username or Password" value="Login" on-click="userform" class="btn">
                     <a href="#">Forgot Username/Password</a>
                 </form>
             </iron-form>

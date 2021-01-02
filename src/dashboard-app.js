@@ -52,8 +52,8 @@ class DashboardApp extends PolymerElement {
       </style>
       
       <!--- title start -->
-      <div class="card" style="margin:16px;">
-        <h1>Dashboard</h1>
+      <div class="card" style="margin:16px;" role="Title">
+        <h1 role="Dashboard">Dashboard</h1>
       </div>
       <!--- title start -->
 

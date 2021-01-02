@@ -51,12 +51,12 @@ class MainApp extends PolymerElement {
               </app-toolbar>
 
               <!-- Iron Selecctor Start -->
-              <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                <a name="dashboard" href="[[rootPath]]dashboard"> Dashboard</a>
-                <a name="add-employee" href="[[rootPath]]add-employee"> Add Employee</a>
-                <a name="employee-list" href="[[rootPath]]employee-list"> Employee List</a>
-                <a name="attendance-list" href="[[rootPath]]attendance-list">Leave Request</a>
-                <a name="login" href="[[rootPath]]login">Logout</a>
+              <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation" role="Navigation" tabindex="0">
+                <a name="dashboard" role="Dashboard" href="[[rootPath]]dashboard"> Dashboard</a>
+                <a name="add-employee" role="Add Employee" href="[[rootPath]]add-employee"> Add Employee</a>
+                <a name="employee-list" role="Employee List" href="[[rootPath]]employee-list"> Employee List</a>
+                <a name="attendance-list" role="leave Request" href="[[rootPath]]attendance-list">Leave Request</a>
+                <a name="login" href="[[rootPath]]login" role="Logout">Logout</a>
               </iron-selector>
               <!-- Iron Selecctor End -->
 
@@ -70,13 +70,13 @@ class MainApp extends PolymerElement {
                 <app-header id="appheader" slot="header" condenses="" reveals="" effects="waterfall">
                   <app-toolbar>
                     <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-                    <div main-title="" class="mobile-logo"><img src="images/logo-png.png" width="150" alt="UniqueHire" loading="lazy"></div>
+                    <div main-title="" class="mobile-logo" role="Mobile Logo"><img src="images/logo-png.png" width="150" alt="UniqueHire" loading="lazy"></div>
                   </app-toolbar>
                 </app-header>
                 <!-- App Header End -->
 
                 <!-- Iron Pages Start -->
-                <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+                <iron-pages selected="[[page]]" attr-for-selected="name" role="main page">
                   <login-app name="login"></login-app>
                   <dashboard-app name="dashboard"></dashboard-app>
                   <add-employee name="add-employee"></add-employee>
